@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% block page_title %}
+            {% endblock page_title %}
+        </title>
+        {% include "snippets/styles.html" %}
+    </head>
+    <body>
+        {% include "snippets/AdminNavbar.html" %}
+        <div class="container">
+        {% block contents %}
+        {% endblock contents %}
+        </div>
+
+        {% include "snippets/scripts.html" %}
+    </body>
+</html>

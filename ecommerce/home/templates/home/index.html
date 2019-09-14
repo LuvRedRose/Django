@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_title %}
+Home
+{% endblock page_title %}
+
+{% block header %}
+    <h1 display="display-4" style="margin-top:150px;">Lorem Ipsum</h1>
+    <p class="lead">Lorem Ipsum</p>
+{% endblock header %}
+
+{% block contents %}
+            <div class="row mt-4 ml-auto border">
+                <div class="col-md-2 ml-5">
+                    <img src="{% static 'image/model_5.png' %}" style="widht:300px; height:300px;">
+                </div>
+                <div class="col-md-8 ml-auto">
+                    <div align="left" style="margin-top:75px;">
+                        <p>{% lorem 1 %}</p>
+                   </div>
+                </div>
+            </div>
+            <div class="row mt-3 ml-auto border">
+                <div class="col-md-8">
+                    <div align="right" style="margin-top:75px;">
+                            <p>{% lorem 1 %}</p>
+                    </div>
+                </div>
+                <div class="col-md-2 ml-5">
+                    <img src="{% static 'image/model_1.png' %}" style="widht:300px; height:300px;">
+                </div>
+            </div>
+            c
+            <center>
+            <h3>Most Rated</h3>
+            </center>
+
+            <div class="row mt-3">
+               <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'image/product_3.jpg' %}" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Lorem Ipsum</h4>
+                            <p class="card-text">Lorem Ipsum</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'image/product_5.jpg' %}" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Lorem Ipsum</h4>
+                            <p class="card-text">Lorem Ipsum</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=col-md-4>
+                     <div class="card">
+                        <img class="card-img-top" src="{% static 'image/product_7.jpg' %}" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Lorem Ipsum</h4>
+                            <p class="card-text">Lorem Ipsum</p>
+                        </div>
+                    </div>
+                </div>
+
+               </div>
+            </div>
+
+            <div class="footer">
+                <p>ini footer</p>
+            </div>
+{% endblock contents %}

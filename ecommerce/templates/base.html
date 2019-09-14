@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% block page_title %}
+            {% endblock page_title %}
+        </title>
+        {% include "snippets/styles.html" %}
+    </head>
+    <body>
+        {% include "snippets/navbar.html" %}
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container text-white text-center minu" id="mybody">
+                {% block header %}
+                {% endblock header %}
+            </div>
+        </div>
+        <div class="container">
+        {% block contents %}
+        {% endblock contents %}
+        </div>
+
+        {% include "snippets/scripts.html" %}
+    </body>
+</html>

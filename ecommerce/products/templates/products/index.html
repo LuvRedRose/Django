@@ -1,0 +1,66 @@
+{% extends "base_admin.html" %}
+{% load static %}
+
+{% block page_title %}
+    {{Title}}
+{% endblock page_title %}
+
+{% block contents %}
+    <h1 class="mt-5">{{Title}}</h1>
+    <a class="btn btn-primary mt-2" href="{% url 'products:add' %}">Add Product</a>
+    <table class="table mt-3">
+        <thead class="thead-inverse mt-2">
+            <th>No</th>
+            <th>Product Name</th>
+            <th>Detail Product</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Image</th>
+            <th colspan="2">Action</th>
+        </thead>
+        <tbody>
+            {% for products in product %}
+                <tr>
+                    <td scope="row">{{forloop.counter}}</td>
+                    <td>{{products.product_name}}</td>
+                    <td>{{products.detail}}</td>
+                    <td>{{products.category}}</td>
+                    <td>Rp. {{products.price}}</td>
+                    <td>{{products.quantity}}</td> 
+                    <td>
+                    <img class="card-img-top" src="{{products.image.url}}" style="width:150px; height:200px">
+                    </td>
+                    <td>
+                        <a class="btn btn-sm btn-warning" href="{% url 'products:update' products.id %}">Update</a>
+                        <a class="btn btn-sm btn-danger" href="{% url 'products:delete' products.id %}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        {% if products.has_other_pages %}
+                  <ul class="pagination justify-content-center mt-2">
+                    {% if products.has_previous %}
+                        <li><a href="?page={{products.previous_page_number}}">Previous</a></li>
+                    {% else %}
+                        <li class="disabled"><span>Previous</span></li>
+                    {% endif %}
+
+                    {% for i in products.paginator.page_range  %}
+                        {% if products.number == i %}
+                            <li class="activate"><span>{{i}}</span></li>
+                        {% else %}
+                            <li><a href="?page={{i}}">{{i}}</a></li>
+                        {% endif %}                
+                    {% endfor %}
+
+                    {% if products.has_next %}
+                        <li><a href="?page={{products.next_page_number}}">Next</a></li>
+                    {% else %}
+                        <li class="disabled"><span>Next</span></li>
+                    {% endif %}
+                </ul>
+        {% endif %}
+
+{% endblock contents %}

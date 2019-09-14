@@ -1,0 +1,19 @@
+.jumbotron {
+    background-image: url("/static/image/bg-2.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 600px;
+}
+
+.products {
+    width: 250px;
+    height: 350px;
+}
+
+.minu {
+    margin-top: -100px;
+}
+
+.cente {
+    float: center;
+}
